@@ -1,6 +1,6 @@
 class countOccurrenceOfAllCharactersInString {
     public static void main(String[] args) {
-        String str = "hello world";
+        String str = "aaabbccy";
         int[] count = new int[256]; // ASCII character set size
 
         for (int i = 0; i < str.length(); i++) {

@@ -1,72 +1,61 @@
-/*
-Find the length of the longest contiguous subarray of alternating odd and positive,even and negative numbers in an array.  
-The result must always start with odd-positive  
+// give me the solution for the following problem in Java
+// and also give the time and space complexity of the solution
+// And give me the explanation of how the code works in comments and what pattren it is using
 
-Test Cases  
 
-Input - [2,3,-4,7,-8,6]  
-Output - 4 
-The corresponding array is [3,-4,7,-8]  
+//Given a string s, find the length of the longest substring without duplicate characters.
+/*Input - "abcabcbb"  
+Output - 3
+The answer is "abc", with the length of 3.  
 
-Input - [2,3,-4,7,-8,5]  
-Output - 5 
-The corresponding array is [3,-4,7,-8,5]  
+Input - "bbbbb"  
+Output - 1
+The answer is "b", with the length of 1.
 
-Input - [3,-4,7,-8,6]  
-Output - 4 
-The corresponding array is [3,-4,7,-8] 
+Input - "pwwkew"
+Output - 3
+The answer is "wke", with the length of 3.
+Note that the answer must be a substring, "pwke" is a subsequence and not
+a substring. 
 */
 
-// //Input - [2,3,-4,7,-8,6]  
-// Here the longest alternating subarray starting with odd-positive is [3,-4,7,-8], which has a length of 4.
-// hwo it will work
-// //Output - 4
-// algorithm steps
-// 1.Initialize two variables maxLength and currentLength to 0. Also, initialize a boolean variable expectOddPositive to true, indicating that we expect the next number to be odd and positive.
-// 2.Iterate through each number in the array:
-//    a. If expectOddPositive is true and the current number is odd and positive, increment currentLength and set expectOddPositive to false (indicating that the next number should be even and negative).
-//    b. If expectOddPositive is false and the current number is even and negative, increment currentLength and set expectOddPositive to true (indicating that the next number should be odd and positive).
-//    c. If the current number does not match the expected pattern, reset currentLength to 0. If the current number is odd and positive, set currentLength to 1 and expectOddPositive to false; otherwise, reset expectOddPositive to true.
-// 3.After processing each number, update maxLength to be the maximum of maxLength and currentLength.
-// 4.Return maxLength as the result.
+/*Algorithm Steps:
+1. Initialize a HashSet to store unique characters in the current substring.
+2. Initialize two pointers, left and right, both set to the start of the string.
+3. Initialize a variable maxLength to keep track of the maximum length found.
+4. Iterate with the right pointer through the string:
+   a. While the character at the right pointer is already in the HashSet, remove the character at the left pointer from the HashSet and increment the left pointer.
+   b. Add the character at the right pointer to the HashSet.
+   c. Update maxLength with the maximum value between maxLength and the current window size (right - left + 1).
+5. Return maxLength as the result.
+*/  
 
+//Sliding Window Pattern
+import java.util.HashSet;   
 
 public class LengthOfLongestSubstring {
-    public static void main(String[] args) {
-        int[] arr = {2,3,-4,7,-8,5};
-        System.out.println("Length of longest alternating subarray: " + longestAlternatingSubarray(arr));
-    }
-
-    public static int longestAlternatingSubarray(int[] arr) {
+     public static int lengthOfLongestSubstring(String s) {
+        HashSet<Character> charSet = new HashSet<>();
+        int left = 0;
         int maxLength = 0;
-        int currentLength = 0;
-        boolean expectOddPositive = true; // Start with odd-positive
 
-        for (int num : arr) {
-            if (expectOddPositive && num > 0 && num % 2 != 0) {
-                currentLength++;
-                expectOddPositive = false; // Next should be even-negative
-            } else if (!expectOddPositive && num < 0 && num % 2 == 0) {
-                currentLength++;
-                expectOddPositive = true; // Next should be odd-positive
-            } else {
-                // Reset if the pattern breaks
-                if (num > 0 && num % 2 != 0) {
-                    currentLength = 1; // Start new count
-                    expectOddPositive = false; // Next should be even-negative
-                } else {
-                    currentLength = 0; // Reset count
-                    expectOddPositive = true; // Reset to expect odd-positive
-                }
+        for (int right = 0; right < s.length(); right++) {
+            // If the character is already in the set, remove characters from the left
+            while (charSet.contains(s.charAt(right))) {
+                charSet.remove(s.charAt(left));
+                left++;
             }
-            maxLength = Math.max(maxLength, currentLength);
+            // Add the current character to the set
+            charSet.add(s.charAt(right));
+            // Update maxLength if we found a longer substring
+            maxLength = Math.max(maxLength, right - left + 1);
         }
         return maxLength;
     }
-}
+    public static void main(String[] args) {
+        String s = "pwwkew";
+        System.out.println("Length of longest substring without duplicate characters: " + lengthOfLongestSubstring(s));
+    }
 
-//time complexity of the LengthOfLongestSubstring is O(n)
-//space complexity of the LengthOfLongestSubstring is O(1)
- //time complexity means how the runtime of an algorithm increases as the size of the input increases.
- //space complexity means how the memory consumption of an algorithm increases as the size of the input increases
- 
+   
+}
