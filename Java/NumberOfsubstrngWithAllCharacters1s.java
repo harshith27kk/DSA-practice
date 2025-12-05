@@ -24,6 +24,8 @@
 // Output: 21
 // Explanation: Each substring contains only 1's characters.
 
+// pattren used: Counting Consecutive Characters
+
 class NumberOfsubstrngWithAllCharacters1s {
     public static void main(String[] args) {
         String s = "0110111";

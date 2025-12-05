@@ -53,7 +53,7 @@ public class LengthOfLongestSubstring {
         return maxLength;
     }
     public static void main(String[] args) {
-        String s = "pwwkew";
+        String s = "abcababb";
         System.out.println("Length of longest substring without duplicate characters: " + lengthOfLongestSubstring(s));
     }
 

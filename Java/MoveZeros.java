@@ -1,5 +1,5 @@
 //283. Move Zeroes
-class Solution {
+class ReverseString {
     public void moveZeroes(int[] nums) {
         int left = 0;
         // int temp = nums[0];
@@ -16,7 +16,7 @@ class Solution {
 
 public class MoveZeros {
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        ReverseString solution = new ReverseString();
         int[] nums = {0,1,0,3,12};
         solution.moveZeroes(nums);
         for(int num : nums){
