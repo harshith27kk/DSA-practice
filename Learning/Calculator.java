@@ -1,4 +1,4 @@
-package com.harshith.main.java;
+package Learning;
 
 import java.util.Scanner;
 import java.util.regex.MatchResult;
