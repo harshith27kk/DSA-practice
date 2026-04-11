@@ -30,32 +30,55 @@ a substring.
 5. Return maxLength as the result.
 */  
 
-//Sliding Window Pattern
-import java.util.HashSet;   
+// //Sliding Window Pattern
+import java.util.HashSet;
+import java.util.Set;   
 
-public class LengthOfLongestSubstring {
-     public static int lengthOfLongestSubstring(String s) {
-        HashSet<Character> charSet = new HashSet<>();
-        int left = 0;
+// public class LengthOfLongestSubstring {
+//      public static int lengthOfLongestSubstring(String s) {
+//         HashSet<Character> charSet = new HashSet<>();
+//         int left = 0;
+//         int maxLength = 0;
+
+//         for (int right = 0; right < s.length(); right++) {
+//             // If the character is already in the set, remove characters from the left
+//             while (charSet.contains(s.charAt(right))) {
+//                 charSet.remove(s.charAt(left));
+//                 left++;
+//             }
+//             // Add the current character to the set
+//             charSet.add(s.charAt(right));
+//             // Update maxLength if we found a longer substring
+//             maxLength = Math.max(maxLength, right - left + 1);
+//         }
+//         return maxLength;
+//     }
+//     public static void main(String[] args) {
+//         String s = "abcababb";
+//         System.out.println("Length of longest substring without duplicate characters: " + lengthOfLongestSubstring(s));
+//     }
+
+   
+// }
+
+class Solution {
+    public static int lengthOfLongestSubstring(String s) {
+      Set<Character> charAt = new HashSet<>();
         int maxLength = 0;
-
-        for (int right = 0; right < s.length(); right++) {
-            // If the character is already in the set, remove characters from the left
-            while (charSet.contains(s.charAt(right))) {
-                charSet.remove(s.charAt(left));
+        int left = 0;
+        for(int right=0; right<s.length(); right++){
+            while(charAt.contains(s.charAt(right))){
+                charAt.remove(s.charAt(left));
                 left++;
             }
-            // Add the current character to the set
-            charSet.add(s.charAt(right));
-            // Update maxLength if we found a longer substring
-            maxLength = Math.max(maxLength, right - left + 1);
+            charAt.add(s.charAt(right));
+
+            maxLength = Math.max(maxLength, right - left +1);
         }
         return maxLength;
     }
-    public static void main(String[] args) {
-        String s = "abcababb";
-        System.out.println("Length of longest substring without duplicate characters: " + lengthOfLongestSubstring(s));
-    }
-
-   
+public static void main(String[] args){
+    String s = "abacdeffjklmnop";
+     System.out.println("Length of longest substring without duplicate characters: " + lengthOfLongestSubstring(s));
+}
 }
