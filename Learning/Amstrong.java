@@ -16,7 +16,6 @@ public class Amstrong {
     static boolean isAmstrong(int n){
         int rem = 0;
         int sum = 0;
-        int qube = 0;
         int number = n;
         while(n>0){
             rem = n%10;
