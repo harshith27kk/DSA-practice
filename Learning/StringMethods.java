@@ -10,6 +10,7 @@ public class StringMethods {
     //Basic inspection methods
     System.out.println(name.length());
 
+    //isEmpty and isBlank
     if(name.isEmpty()) System.out.println("is empty");
     System.out.println("not empty or balnk");
 
@@ -19,6 +20,7 @@ public class StringMethods {
     System.out.println("not balnk");
 
 
+    //
     System.out.println('H' == name.charAt(0));
 
 
@@ -32,8 +34,10 @@ public class StringMethods {
     String S3 = "Apple and orange";
     System.out.println("compar to " + S1.compareTo(S2));
 
+    //
     System.out.println(S1.contains(S2));
 
+    //
     System.out.println(S1.startsWith("A"));
 
      System.out.println(S1.endsWith("E".toLowerCase()));
@@ -42,16 +46,22 @@ public class StringMethods {
 
      System.out.println(S1.trim()); // with trim
 
+     //
      System.out.println(S1);
       System.out.println(S1.strip());
 
     System.out.println(S3.substring(6));
 
+    //replace
     System.out.println(S3.replace("Apple", "Harshith"));
 
+    //
     System.out.println(S3.indexOf("o"));
 
+    //split method 
+
     String[] A1 = S3.split(",");
+
 
     System.out.println(Arrays.toString(A1));
 
