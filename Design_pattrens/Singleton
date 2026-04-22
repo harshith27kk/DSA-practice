@@ -1,0 +1,20 @@
+Singloton design pattrens ensures calss has only one instance and provides global point of access to it
+
+Real world application:
+
+Logging systems
+Databse configurations
+Congi managers
+thread pools
+
+features:
+
+Single Instance: Ensures only one object of the class exists in the JVM.
+Global Access Point: Provides a centralized way to access the instance.
+Lazy or Eager Initialization: An Instance can be created at class load time (eager) or when first needed (lazy).
+Thread Safety: Can be designed to work correctly in multithreaded environments.
+Resource Management: Useful for managing shared resources like configurations, logging or database connections.
+
+
+Race condetion--> In a multi-threaded environment, the basic implementation of the Singleton Design Pattern may fail due to a problem known as a Race condition
+In a multi threaded environment when multile threads are accesing the same instence it can lead to creating of multiple threads. which voilates the core principle of singleton.
