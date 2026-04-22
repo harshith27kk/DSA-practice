@@ -64,6 +64,5 @@ public class StringMethods {
 
 
     System.out.println(Arrays.toString(A1));
-
 }
 }
