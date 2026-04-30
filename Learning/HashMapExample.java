@@ -68,5 +68,17 @@ public class HashMapExample {
         // HashMap is empty
         boolean isEmpty = Geeks.isEmpty();
         System.out.println("Is Empty? " + isEmpty);
+
+
+        // Using the getOrDefault() method to retrieve a value
+        // from the HashMap, or return a default value if the key does not exist        
+        HashMap<Integer, Integer> count = new HashMap<>();
+            int[] nums = {1,2,2,3};
+            for(int n:nums){
+                count.put(n, count.getOrDefault(n, 0)+1);
+            }
+            System.out.println(count);
+            }
     }
-}
+
+
