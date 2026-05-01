@@ -92,6 +92,13 @@ public class HashMapExample {
         System.out.println("Before putIfAbsent: " + map2);
         map2.putIfAbsent("C", "Blueberry");
         System.out.println("After putIfAbsent: " + map2);
+
+        // Using the computeIfAbsent() method to compute a value for a specific key if it is not already present in the HashMap
+        HashMap<String, Integer> map3 = new HashMap<>();
+        map3.put("X", 10);
+        System.out.println("Before computeIfAbsent: " + map3);
+        map3.computeIfAbsent("Y", k -> 20);
+        System.out.println("After computeIfAbsent: " + map3);
         }
     }
 
