@@ -85,6 +85,13 @@ public class HashMapExample {
         System.out.println("Before replace: " + map);
         map.replace("A", "Apricot");
         System.out.println("After replace: " + map);
+
+        // Using the putIfAbsent() method to add a key-value pair to the HashMap only if the key is not already present
+        HashMap<String, String> map2 = new HashMap<>();
+        map2.put("B", "Banana");
+        System.out.println("Before putIfAbsent: " + map2);
+        map2.putIfAbsent("C", "Blueberry");
+        System.out.println("After putIfAbsent: " + map2);
         }
     }
 
