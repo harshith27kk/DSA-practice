@@ -78,7 +78,14 @@ public class HashMapExample {
                 count.put(n, count.getOrDefault(n, 0)+1);
             }
             System.out.println(count);
-            }
+
+        // Using the replace() method to replace the value for a specific key in the HashMap
+        HashMap<String, String> map = new HashMap<>();
+        map.put("A", "Apple");
+        System.out.println("Before replace: " + map);
+        map.replace("A", "Apricot");
+        System.out.println("After replace: " + map);
+        }
     }
 
 
